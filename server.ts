@@ -4,7 +4,7 @@ import { CourseMockGateway } from "./course.domain/course.gateway.mock";
 import * as  Express from "express";
 const app =  Express();
 
-// Handler
+// Handler Build
 let courseGateway = new CourseMockGateway();
 let courseUseCases = new CourseUseCases(courseGateway);
 let courseHandlers = new CourseHandlers(courseUseCases);
@@ -21,7 +21,9 @@ app.get('/', (req, res) => {
   res.end();
 });
 
-app.get('/courses', courseHandlers.getCourses);
+app.get('/courses', function(request: Express.Request, response: Express.Response) {
+  courseHandlers.getCourses(request, response);
+});
 
 app.listen(3000, function() {
   console.log("Listening to port 3000");
