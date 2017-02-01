@@ -1,13 +1,14 @@
+import { CourseMongoGateway } from './course.domain/course.gateway.mongo';
 import { Course } from "./entities/course";
-import { CourseUseCases } from "./course.domain/course.use-case";
-import { CourseMockGateway } from "./course.domain/course.gateway.mock";
+//import { CourseUseCases } from "./course.domain/course.use-case";
+//import { CourseMockGateway } from "./course.domain/course.gateway.mock";
 
-let courseUseCases = new CourseUseCases(new CourseMockGateway());
+//let courseUseCases = new CourseUseCases(new CourseMockGateway());
 
+//courseUseCases.getCourses((courses: Course[]): void => {
+  //console.log(courses)
+//});
 
-let courses = courseUseCases.getCourses();
-for (let course of courses) {
-  console.log("Course name: " + course.name);
-  console.log("Course description: " + course.description);
-  console.log("Course url: " + course.url);
-}
+(new CourseMongoGateway()).getAllCourses((courses: Course[]): void => {
+  console.log(courses);
+});

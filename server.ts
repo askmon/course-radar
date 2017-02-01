@@ -1,11 +1,11 @@
 import { CourseHandlers } from "./course.domain/course.handler";
 import { CourseUseCases } from "./course.domain/course.use-case";
-import { CourseMockGateway } from "./course.domain/course.gateway.mock";
+import { CourseMongoGateway } from "./course.domain/course.gateway.mongo";
 import * as  Express from "express";
 const app =  Express();
 
 // Handler Build
-let courseGateway = new CourseMockGateway();
+let courseGateway = new CourseMongoGateway();
 let courseUseCases = new CourseUseCases(courseGateway);
 let courseHandlers = new CourseHandlers(courseUseCases);
 

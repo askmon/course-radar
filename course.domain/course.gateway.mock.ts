@@ -12,7 +12,7 @@ const courses = [new Course("Machine Learning",
                           "https://www.pluralsight.com/courses/continuous-integration")];
 export class CourseMockGateway implements CourseGateway {
 
-  getAllCourses(): Course[] {
-    return courses;
+  getAllCourses(callback: (courses: Course[]) => void): void {
+    callback(courses);
   }
 }
