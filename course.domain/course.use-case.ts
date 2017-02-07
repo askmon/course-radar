@@ -5,7 +5,7 @@ export class CourseUseCases {
 
   constructor(private courseGateway: CourseGateway) {}
 
-  getCourses(callback: (courses: Course[]) => void): void {
-    this.courseGateway.getAllCourses(callback);
+  getCourses(): Promise<Course[]> {
+    return this.courseGateway.getAllCourses();
   }
 }

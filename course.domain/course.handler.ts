@@ -6,8 +6,10 @@ export class CourseHandlers {
   constructor(private courseUseCases: CourseUseCases) {}
 
   public getCourses(request: Request, response: Response) {
-    this.courseUseCases.getCourses((courses: Course[]): void => {
+    this.courseUseCases.getCourses().then((courses: Course[]) => {
       response.send(courses);
+    }, (error: Error) => {
+      response.send(error);
     });
   }
 }

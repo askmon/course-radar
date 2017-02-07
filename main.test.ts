@@ -1,14 +1,33 @@
-import { CourseMongoGateway } from './course.domain/course.gateway.mongo';
-import { Course } from "./entities/course";
-//import { CourseUseCases } from "./course.domain/course.use-case";
-//import { CourseMockGateway } from "./course.domain/course.gateway.mock";
+import { Injector } from './injector';
 
-//let courseUseCases = new CourseUseCases(new CourseMockGateway());
+interface TestInter {
+  hi(): void;
+}
+class Test  implements TestInter {
+  constructor() {}
+  hi(): void {
+    console.log("Hello!");
+  }
 
-//courseUseCases.getCourses((courses: Course[]): void => {
-  //console.log(courses)
-//});
+  test(arg: string, another: number): void {
+    console.log(arg);
+  }
+}
 
-(new CourseMongoGateway()).getAllCourses((courses: Course[]): void => {
-  console.log(courses);
-});
+class AnotherTest {
+
+  constructor(private testInter: TestInter) {}
+
+  greeter(): void {
+    console.log("Welcome");
+    this.testInter.hi();
+  }
+}
+
+class NotInjectable {
+
+}
+
+let injector = <Injector> new Injector([["TestInter", Test], AnotherTest]);
+let anotherTest = <AnotherTest> injector.get(AnotherTest);
+anotherTest.greeter();

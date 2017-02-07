@@ -1,13 +1,8 @@
-import { CourseHandlers } from "./course.domain/course.handler";
-import { CourseUseCases } from "./course.domain/course.use-case";
-import { CourseMongoGateway } from "./course.domain/course.gateway.mongo";
+import { ApiRouter } from "./api.router";
+import { ViewsRouter } from "./views.router";
 import * as  Express from "express";
 const app =  Express();
 
-// Handler Build
-let courseGateway = new CourseMongoGateway();
-let courseUseCases = new CourseUseCases(courseGateway);
-let courseHandlers = new CourseHandlers(courseUseCases);
 
 // Configurations
 app.set('views', './views');
@@ -16,14 +11,8 @@ app.use('/app', Express.static('./views'));
 app.use('/modules', Express.static('./node_modules'));
 
 // Routes
-app.get('/', (req, res) => {
-  res.render('home', {});
-  res.end();
-});
-
-app.get('/courses', function(request: Express.Request, response: Express.Response) {
-  courseHandlers.getCourses(request, response);
-});
+app.use('/', ViewsRouter)
+app.use('/api', ApiRouter);
 
 app.listen(3000, function() {
   console.log("Listening to port 3000");

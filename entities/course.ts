@@ -1,6 +1,5 @@
-export class Course {
-
-  constructor(public name: string, public description: string, public url: string) {}
-
-
+export interface Course {
+  name: string;
+  description: string;
+  url: string;
 }
