@@ -2,7 +2,9 @@ import { CourseRouter } from "./server/presentation/modules/course/course.routes
 import { ViewsRouter } from "./views.router";
 import * as  Express from "express";
 const app =  Express();
-
+import "typedi";
+import "es6-shim";
+import "reflect-metadata";
 
 // Configurations
 app.set('views', './views');

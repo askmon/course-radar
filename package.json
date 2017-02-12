@@ -4,7 +4,7 @@
   "description": "Basic Angular + Express Template using TypeScript",
   "scripts": {
     "tsc": "tsc",
-    "start": "tsc &&  node server.js",
+    "start": "ts-node server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Felipe Marques",
@@ -17,10 +17,13 @@
     "@angular/platform-browser-dynamic": "^2.4.5",
     "core-js": "^2.4.1",
     "ejs": "^2.5.5",
+    "es6-shim": "^0.35.3",
     "express": "^4.14.0",
     "mongodb": "^2.2.22",
+    "reflect-metadata": "^0.1.9",
     "rxjs": "^5.0.3",
     "systemjs": "^0.20.2",
+    "typedi": "^0.4.3",
     "zone.js": "^0.7.6"
   },
   "devDependencies": {
