@@ -1,9 +1,9 @@
-import { Course } from '../entities/course';
-import { CourseUseCases } from  './course.use-case';
+import { Course } from '../../../domain/entities/course';
+import { GetCoursesUseCase } from  '../../../domain/get-courses.use-case';
 import { Request, Response } from "express";
-export class CourseHandlers {
+export class CourseController {
 
-  constructor(private courseUseCases: CourseUseCases) {}
+  constructor(private courseUseCases: GetCoursesUseCase) {}
 
   public getCourses(request: Request, response: Response) {
     this.courseUseCases.getCourses().then((courses: Course[]) => {

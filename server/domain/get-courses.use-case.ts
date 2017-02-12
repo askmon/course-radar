@@ -1,7 +1,7 @@
-import { Course } from "../entities/course";
-import { CourseGateway } from "./course.contract";
+import { Course } from "./entities/course";
+import { CourseGateway } from "./get-courses.contract";
 
-export class CourseUseCases {
+export class GetCoursesUseCase {
 
   constructor(private courseGateway: CourseGateway) {}
 

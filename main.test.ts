@@ -1,4 +1,4 @@
-import { Injector } from './injector';
+import { Injector } from './server/utils/injector';
 
 interface TestInter {
   hi(): void;
