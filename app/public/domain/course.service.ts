@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Course } from './course.view-model';
+import { Course } from '../presentation/common/courses/view-model/course.view-model';
 import { COURSES } from './courses-mock';
 
 @Injectable()

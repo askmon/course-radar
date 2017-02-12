@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Course } from './course.view-model';
+import { Course } from './view-model/course.view-model';
 
 @Component({
   selector: 'course',

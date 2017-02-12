@@ -1,4 +1,4 @@
-import { Course } from './course.view-model';
+import { Course } from '../presentation/common/courses/view-model/course.view-model';
 
 export const COURSES = [
   new Course("Machine Learning",
