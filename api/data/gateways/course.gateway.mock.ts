@@ -1,5 +1,5 @@
-import { Course } from "../entities/course";
-import { CourseGateway } from "./course.contract";
+import { Course } from "../../domain/course";
+import { CourseGateway } from "../../domain/course.contract";
 
 const courses = [{
                   name: "Machine Learning",

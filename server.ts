@@ -1,5 +1,5 @@
-import { ApiRouter } from "./api.router";
-import { ViewsRouter } from "./app/views.router";
+import { ApiRouter } from "./api/api.router";
+import { AppRouter } from "./app/app.router";
 import * as  Express from "express";
 const app =  Express();
 
@@ -11,7 +11,7 @@ app.use('/app', Express.static('./app/public'));
 app.use('/modules', Express.static('./node_modules'));
 
 // Routes
-app.use('/', ViewsRouter);
+app.use('/', AppRouter);
 app.use('/api', ApiRouter);
 
 app.listen(3000, function() {

@@ -1,5 +1,5 @@
-import { Course } from '../entities/course';
-import { CourseUseCases } from  './course.use-case';
+import { Course } from '../domain/course';
+import { CourseUseCases } from  '../domain/course.use-case';
 import { Request, Response } from "express";
 export class CourseHandlers {
 

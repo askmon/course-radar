@@ -1,4 +1,4 @@
-import { Course } from "../entities/course";
+import { Course } from "./course";
 
 export interface CourseGateway {
   getAllCourses(): Promise<Course[]>;

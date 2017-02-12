@@ -1,4 +1,4 @@
-import { Course } from "../entities/course";
+import { Course } from "./course";
 import { CourseGateway } from "./course.contract";
 
 export class CourseUseCases {

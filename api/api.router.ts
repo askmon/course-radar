@@ -1,9 +1,9 @@
 import { Router, Request, Response } from "express";
-import { Injector } from "./injector";
-import { CourseHandlers } from "./course.domain/course.handler";
-import { CourseUseCases } from "./course.domain/course.use-case";
-import { CourseMongoGateway } from "./course.domain/course.gateway.mongo";
-import { CourseGateway } from "./course.domain/course.contract";
+import { Injector } from "../injector";
+import { CourseHandlers } from "./presentation/course.handler";
+import { CourseUseCases } from "./domain/course.use-case";
+import { CourseMongoGateway } from "./data/gateways/course.gateway.mongo";
+import { CourseGateway } from "./domain/course.contract";
 
 
 //Handler Build
