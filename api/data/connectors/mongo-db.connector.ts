@@ -1,12 +1,13 @@
 import { Db, Server } from "mongodb";
+import { Config } from "../../../config";
 
-let dbName = "courseRadar";
-let host = "localhost";
-let port = 27017;
+let dbName = Config.db.name;
+let host = Config.db.host;
+let port = Config.db.port;
 let serverOptions = {auto_reconnect: true};
 let dbOptions = {w:  1};
 
-let db = new Db("courseRadar",
+let db = new Db(dbName,
                 new Server(host, port, serverOptions),
                 dbOptions);
 
