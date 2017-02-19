@@ -1,13 +1,14 @@
-import { DevConfig } from "./config/development.env";
-import { ProdConfig } from "./config/production.env";
+import * as dotenv from 'dotenv';
+dotenv.config();
 
-function configurationMapper(): any {
-  switch (process.env.NODE_ENV) {
-    case 'production':
-      return ProdConfig;
-    case 'development':
-    default:
-      return  DevConfig;
+declare var process;
+
+export class Config {
+
+  static db: any =
+  {
+    name: process.env.DB_NAME || 'courseRadar',
+    host: process.env.DB_HOST || 'localhost',
+    port: process.env.DB_PORT || 27017,
   }
 }
-export const Config = configurationMapper();
