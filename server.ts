@@ -1,8 +1,11 @@
+import "reflect-metadata";
+
 import { ApiRouter } from "./api/api.router";
 import { AppRouter } from "./app/app.router";
 import * as  Express from "express";
 const app =  Express();
 
+import { Container } from "typedi";
 
 // Configurations
 app.set('views', './app/public');

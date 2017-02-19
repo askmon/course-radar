@@ -1,11 +1,18 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "module": "commonjs",
     "moduleResolution": "node",
-    "sourceMap": true,
-    "experimentalDecorators": true,
+    "isolatedModules": false,
     "emitDecoratorMetadata": true,
-    "outDir": "dist"
+    "experimentalDecorators": true,
+    "outDir": "dist",
+    "declaration": false,
+    "noImplicitAny": false,
+    "noImplicitUseStrict": false,
+    "removeComments": true,
+    "noLib": false,
+    "preserveConstEnums": true,
+    "suppressImplicitAnyIndexErrors": true
   }
 }
