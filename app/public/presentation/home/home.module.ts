@@ -4,7 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CourseListComponent } from '../common/courses/course-list.component';
 import { CourseComponent } from '../common/courses/course.component';
 import { CourseService } from '../../domain/course.service';
-import { CourseServiceMock } from '../../domain/course.service.mock';
+import { CourseRepository } from '../../domain/course.contract';
+import { CourseRepositoryMock } from '../../data/course.repository.mock';
 
 @NgModule({
   imports: [
@@ -13,7 +14,7 @@ import { CourseServiceMock } from '../../domain/course.service.mock';
   declarations: [
     CourseListComponent, CourseComponent
   ],
-  providers: [{provide: CourseService, useClass: CourseServiceMock}],
+  providers: [CourseService, { provide: CourseRepository, useClass: CourseRepositoryMock }],
   bootstrap: [
     CourseListComponent
   ]

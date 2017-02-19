@@ -1,4 +1,4 @@
-import { Course } from './entities/course.entity';
+import { Course } from '../domain/entities/course.entity';
 
 export const COURSES = [
   new Course("Machine Learning",
