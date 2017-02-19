@@ -5,7 +5,7 @@
   "scripts": {
     "webpack": "webpack --config webpack.config.js",
     "tsc": "tsc",
-    "start": "tsc  && webpack --config webpack.config.js && node server.js",
+    "start": "tsc  && webpack --config webpack.config.js && node dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Felipe Marques",
@@ -25,6 +25,7 @@
     "zone.js": "^0.7.6"
   },
   "devDependencies": {
+    "@types/core-js": "^0.9.35",
     "@types/mongodb": "^2.1.37",
     "awesome-typescript-loader": "^3.0.0-beta.20",
     "typescript": "^2.1.5",
