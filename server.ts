@@ -1,17 +1,18 @@
-import * as  express from "express";
-const app = express();
+import { ApiRouter } from "./api/api.router";
+import { AppRouter } from "./app/app.router";
+import * as  Express from "express";
+const app =  Express();
+
 
 // Configurations
-app.set('views', './views');
+app.set('views', './app/public');
 app.set('view engine', 'ejs');
-app.use('/app', express.static('./views'));
-app.use('/modules', express.static('./node_modules'));
+app.use('/app', Express.static('./app/public'));
+app.use('/modules', Express.static('./node_modules'));
 
 // Routes
-app.get('/', (req, res) => {
-  res.render('home', {});
-  res.end();
-});
+app.use('/', AppRouter);
+app.use('/api', ApiRouter);
 
 app.listen(3000, function() {
   console.log("Listening to port 3000");
