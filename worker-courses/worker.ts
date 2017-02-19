@@ -6,5 +6,7 @@ var getAllCoursesUseCase = new GetAllCoursesUseCase();
 
 let schedule = scheduler.scheduleJob('* * * * *', () =>
 {
-  getAllCoursesUseCase.getAllCourses();
+  getAllCoursesUseCase.getAllCourses().then(function(courses){
+    console.log(courses);
+  });
 });
