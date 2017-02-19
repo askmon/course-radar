@@ -1,6 +1,9 @@
 import { Course } from '../domain/course';
 import { CourseUseCases } from  '../domain/course.use-case';
 import { Request, Response } from "express";
+import { Service } from 'typedi';
+
+@Service()
 export class CourseHandlers {
 
   constructor(private courseUseCases: CourseUseCases) {}
