@@ -1,5 +1,11 @@
-export interface Course {
-  name: string;
-  description: string;
-  url: string;
+export class Course {
+  public name: string;
+  public description: string;
+  public url: string;
+
+  constructor(name: string, description: string, url: string){
+    this.name = name;
+    this.description = description;
+    this.url = url;
+  }
 }

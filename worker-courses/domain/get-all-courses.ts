@@ -6,8 +6,8 @@ export class GetAllCoursesUseCase {
 
   async getAllCourses(): Promise<any>  {
     let udacityFetcher = new UdacityFetcher();
+    
     return udacityFetcher.getAllCourses();
-
   }
 
 }
