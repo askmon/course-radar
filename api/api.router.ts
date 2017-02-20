@@ -6,6 +6,7 @@ import { CourseMongoGateway } from "./data/gateways/course.gateway.mongo";
 import { CourseGateway } from "./domain/course.contract";
 
 import { Container } from 'typedi';
+import "./data/gateways/course.gateway.mongo";
 
 //Handler Build
 let courseHandlers = Container.get(CourseHandlers);

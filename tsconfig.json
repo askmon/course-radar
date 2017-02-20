@@ -13,5 +13,9 @@
     "noLib": false,
     "preserveConstEnums": true,
     "suppressImplicitAnyIndexErrors": true
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "worker-courses"
+  ]
 }

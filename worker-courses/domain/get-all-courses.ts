@@ -1,4 +1,6 @@
 import { UdacityFetcher } from '../providers/udacity-fetcher';
+import { CourseRepository } from '../db/mongo-db.connector';
+import { Course } from '../models/course';
 
 export class GetAllCoursesUseCase {
 
@@ -6,8 +8,10 @@ export class GetAllCoursesUseCase {
 
   async getAllCourses(): Promise<any>  {
     let udacityFetcher = new UdacityFetcher();
-    
-    return udacityFetcher.getAllCourses();
+
+    udacityFetcher.getAllCourses().then(function (courses: Course[]){
+      return CourseRepository.update(courses);
+  });
   }
 
 }
