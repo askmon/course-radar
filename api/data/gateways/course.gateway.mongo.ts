@@ -3,7 +3,7 @@ import { Course } from "../../domain/course";
 import { CourseGateway } from  "../../domain/course.contract";
 import { CourseRepository } from "../connectors/mongo-db.connector";
 
-@Service("mongo.gateway")
+@Service("course.gateway")
 export class CourseMongoGateway implements CourseGateway {
 
   getAllCourses(): Promise<Course[]> {
