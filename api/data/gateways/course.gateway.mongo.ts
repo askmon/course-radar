@@ -4,7 +4,7 @@ import { CourseRepository } from "../connectors/mongo-db.connector";
 
 import { Service } from 'typedi';
 
-@Service("mongo.gateway")
+@Service("course.gateway")
 export class CourseMongoGateway implements CourseGateway {
 
   getAllCourses(): Promise<Course[]> {

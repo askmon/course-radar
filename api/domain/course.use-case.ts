@@ -7,7 +7,7 @@ import { Service, Inject } from 'typedi';
 @Service()
 export class CourseUseCases {
 
-  constructor(@Inject("mongo.gateway") private courseGateway: CourseGateway) {}
+  constructor(@Inject("course.gateway") private courseGateway: CourseGateway) {}
 
   getCourses(): Promise<Course[]> {
     return this.courseGateway.getAllCourses();
