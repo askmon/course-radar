@@ -6,7 +6,7 @@ import "../data/gateways/course.gateway.mongo";
 @Service()
 export class CourseUseCases {
 
-  constructor(@Inject("course.gateway.mongo") private courseGateway: CourseGateway) {}
+  constructor(@Inject("course.gateway") private courseGateway: CourseGateway) {}
 
   getCourses(): Promise<Course[]> {
     return this.courseGateway.getAllCourses();
