@@ -1,3 +1,4 @@
+import { Service } from "typedi";
 import { Course } from "../../domain/course";
 import { CourseGateway } from "../../domain/course.contract";
 
@@ -15,6 +16,8 @@ const courses = [{
                   name: "Continous Integration",
                   description:  "Continous Deploy taking your unseen bugs to another level",
                   url: "https://www.pluralsight.com/courses/continuous-integration"}];
+
+@Service()
 export class CourseMockGateway implements CourseGateway {
 
   getAllCourses(): Promise<Course[]> {
