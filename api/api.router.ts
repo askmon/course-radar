@@ -5,10 +5,11 @@ import { CourseUseCases } from "./domain/course.use-case";
 import { CourseMongoGateway } from "./data/gateways/course.gateway.mongo";
 import { CourseGateway } from "./domain/course.contract";
 
+import { Container } from 'typedi';
+import "./data/gateways/course.gateway.mongo";
 
 //Handler Build
-let injector = new Injector([["CourseGateway", CourseMongoGateway], CourseHandlers, CourseUseCases]);
-let courseHandlers = injector.get(CourseHandlers);
+let courseHandlers = Container.get(CourseHandlers);
 
 
 export const ApiRouter = new Router()
