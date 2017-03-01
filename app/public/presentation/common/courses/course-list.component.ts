@@ -1,22 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { Course } from './view-model/course.view-model';
+import { Course } from '../../../domain/entities/course.entity';
 import { CourseService } from '../../../domain/course.service';
 
 @Component({
   selector: 'course-list',
   template: `
     <h1>My Courses</h1>
-    <ul>
+    <ul *ngIf = "success">
       <li *ngFor="let course of courses">
         <course [course]="course"></course>
       </li>
     </ul>
+    <h2 *ngIf = "!success">An error occurred</h2>
   `
 })
 
 export class CourseListComponent implements OnInit {
 
   courses: Course[];
+  success: boolean;
 
   constructor(private courseService: CourseService) {}
 
@@ -25,7 +27,15 @@ export class CourseListComponent implements OnInit {
   }
 
   getCourses(): void {
-    //this.courses = COURSES;
-    this.courseService.getCourses().then(courses => this.courses = courses);
+    //TODO Add proper error handling here
+    this.courseService.getCourses()
+                      .then(courses => {
+                        this.courses = courses;
+                        if (this.courses[0].name != undefined) this.success = true;
+                        else this.success = false;
+                      })
+                      .catch((error: Error) => {
+                        this.success = false;
+                      });
   }
 }

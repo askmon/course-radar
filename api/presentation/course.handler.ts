@@ -1,9 +1,12 @@
+import { Service, Inject } from "typedi";
+import { Request, Response } from "express";
 import { Course } from '../domain/course';
 import { CourseUseCases } from  '../domain/course.use-case';
-import { Request, Response } from "express";
-export class CourseHandlers {
 
-  constructor(private courseUseCases: CourseUseCases) {}
+@Service()
+export class CourseHandlers {
+  @Inject()
+  private courseUseCases: CourseUseCases
 
   public getCourses(request: Request, response: Response) {
     this.courseUseCases.getCourses().then((courses: Course[]) => {

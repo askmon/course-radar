@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
-
-import { Course } from '../presentation/common/courses/view-model/course.view-model';
-import { COURSES } from './courses-mock';
+import { Course } from './entities/course.entity';
+import { CourseRepository } from './course.contract';
 
 @Injectable()
 export class CourseService {
+
+  constructor(private courseRepository: CourseRepository) {};
+
   getCourses(): Promise<Course[]> {
-    return Promise.resolve(COURSES);
-  }
+    return this.courseRepository.getCourses();
+  };
 }

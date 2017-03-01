@@ -1,4 +1,4 @@
-import { Course } from '../presentation/common/courses/view-model/course.view-model';
+import { Course } from '../domain/entities/course.entity';
 
 export const COURSES = [
   new Course("Machine Learning",
