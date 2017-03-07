@@ -6,12 +6,9 @@ export class GetAllCoursesUseCase {
 
   constructor() {}
 
-  async getAllCourses(): Promise<any>  {
+  getAllCourses(): Promise<any>  {
     let udacityFetcher = new UdacityFetcher();
-
-    udacityFetcher.getAllCourses().then(function (courses: Course[]){
-      return CourseRepository.update(courses);
-  });
+    return udacityFetcher.getAllCourses().then(courses => CourseRepository.update(courses));
   }
 
 }
