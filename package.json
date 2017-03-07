@@ -4,11 +4,9 @@
   "description": "Basic Angular + Express Template using TypeScript",
   "scripts": {
     "webpack": "webpack --config webpack.config.js",
-    "pretsc": "typings install typedi=file:node_modules/typedi/typings.json",
+    "pretsc": "npm install",
     "tsc": "tsc",
-    "pretypetest": "typings install typedi=file:node_modules/typedi/typings.json",
-    "typetest": "tsc && node dist/typedi-test/app.js",
-    "prestart": "npm install && typings install typedi=file:node_modules/typedi/typings.json",
+    "prestart": "npm install",
     "start": "tsc  && webpack --config webpack.config.js && node dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -34,7 +32,6 @@
     "zone.js": "^0.7.6"
   },
   "devDependencies": {
-    "@types/core-js": "^0.9.35",
     "@types/dotenv": "^2.0.20",
     "@types/mongodb": "^2.1.37",
     "@types/node": "^7.0.5",
