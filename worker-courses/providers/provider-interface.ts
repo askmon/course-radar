@@ -1,5 +1,5 @@
 import { Course } from "../models/course";
 
-export interface CourseFetcher {
+export interface CourseProvider {
   getAllCourses(): Promise<Course[]>;
 }

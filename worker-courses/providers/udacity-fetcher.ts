@@ -1,9 +1,8 @@
-import { CourseFetcher } from './fetcher-interface';
 import { Course } from '../models/course';
 
 import * as WebRequest from 'web-request';
 
-export class UdacityFetcher implements CourseFetcher {
+export class UdacityFetcher {
 
   async getAllCourses(): Promise<Course[]> {
     let url = 'https://www.udacity.com/public-api/v0/courses';
