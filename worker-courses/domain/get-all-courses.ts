@@ -1,14 +1,18 @@
-import { UdacityFetcher } from '../providers/udacity-fetcher';
-import { CourseRepository } from '../db/mongo-db.connector';
+import { CourseProvider } from '../providers/provider-interface';
+import { CourseRepository } from '../db/course-repository-interface';
 import { Course } from '../models/course';
 
 export class GetAllCoursesUseCase {
 
-  constructor() {}
+  constructor(private courseProvider: CourseProvider, private courseRepository: CourseRepository) {}
 
   getAllCourses(): Promise<any>  {
-    let udacityFetcher = new UdacityFetcher();
-    return udacityFetcher.getAllCourses().then(courses => CourseRepository.update(courses));
+    return this.courseProvider
+                  .getAllCourses()
+                  .then(courses => {
+                    courses.forEach(console.log);
+                    this.courseRepository.update(courses);
+                  });
   }
 
 }

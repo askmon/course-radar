@@ -1,6 +1,7 @@
-import { Db, Server } from "mongodb";
+import { Db, Server, Collection } from "mongodb";
 import { Config } from "../../config";
-import { Course } from "../models/course"
+import { Course } from "../models/course";
+import { CourseRepository } from "./course-repository-interface";
 
 let dbName = Config.db.name;
 let host = Config.db.host;
@@ -12,15 +13,24 @@ let db = new Db(dbName,
                 new Server(host, port, serverOptions),
                 dbOptions);
 
-export class CourseRepository {
-  private static courseCollection = db.collection("courses");
+export class CourseMongoRepository implements CourseRepository {
 
-  static update(courses: Array<Course>): Promise<any[]> {
-    return db.open().then((db: Db): Promise<any[]> => {
-      for (let course of courses) {
-        db.collection("courses").update({"course.name": course.name}, course, {upsert:true});
-      }
-      return null;
+  private db: Db;
+
+  constructor() {
+    this.db = db;
+  }
+
+  update(courses: Array<Course>): Promise<any[]> {
+    this.db.open().then(db => {
+      let coursesCollection: Collection = db.collection("courses");
+      courses.forEach(course => this.updateCourse(course, coursesCollection));
     });
+    return null;
+  }
+
+  private updateCourse(course: Course, courses: Collection): void {
+    courses.update({"course.name": course.name}, course, {upsert: true})
+           .catch(console.log);
   }
 }
