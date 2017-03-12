@@ -31,7 +31,7 @@ export class Server {
 
   setRoutes(): void {
     app.use('/', AppRouter);
-    app.use('/api', ApiRouter);
+    app.use('/api', ApiRouter.getRouter());
   }
 
 }

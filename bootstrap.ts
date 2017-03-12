@@ -1,4 +1,7 @@
+import { Config } from './config';
 import { Server } from './server';
 
-let app = new Server();
-app.start("3000");
+Config.configureDB().then(() => {
+  let app = new Server();
+  app.start("3000");
+});
