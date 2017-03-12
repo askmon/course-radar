@@ -8,7 +8,7 @@ export class CourseUseCases {
 
   constructor(@Inject("course.gateway") private courseGateway: CourseGateway) {}
 
-  getCourses(): Promise<Course[]> {
+  async getCourses(): Promise<Course[]> {
     return this.courseGateway.getAllCourses();
   }
 }
