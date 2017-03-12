@@ -10,7 +10,6 @@ export class GetAllCoursesUseCase {
     return this.courseProvider
                   .getAllCourses()
                   .then(courses => {
-                    courses.forEach(console.log);
                     this.courseRepository.update(courses);
                   });
   }

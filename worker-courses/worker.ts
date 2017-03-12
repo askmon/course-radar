@@ -7,7 +7,9 @@ var getAllCoursesUseCase = new GetAllCoursesUseCase(new CourseApisProvider(), ne
 
 let schedule = scheduler.scheduleJob('* * * * *', () =>
 {
+  console.log("Starting to get Courses!");
   getAllCoursesUseCase.getAllCourses().then(function(courses){
     console.log(courses);
+    console.log("Finished to get Courses!");
   });
 });
