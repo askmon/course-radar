@@ -35,8 +35,10 @@
     "@types/dotenv": "^2.0.20",
     "@types/mongodb": "^2.1.37",
     "@types/node": "^7.0.5",
+    "angular2-template-loader": "^0.6.2",
     "awesome-typescript-loader": "^3.0.0-beta.20",
     "nodemon": "^1.11.0",
+    "raw-loader": "^0.5.1",
     "typescript": "^2.1.5",
     "typings": "^2.1.0",
     "webpack": "^2.0.0"

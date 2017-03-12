@@ -1,14 +1,25 @@
 module.exports = {
 
   resolve: {
-    extensions: ['.ts','.js']
+    extensions: ['.ts','.js', '.html']
   },
 
   module: {
     loaders: [
       {
-        test: /\.ts/,
-        loader: 'awesome-typescript-loader'
+        test: /\.ts$/,
+        loader: [
+          'awesome-typescript-loader',
+          'angular2-template-loader'
+        ]
+      },
+      {
+        test: /\.html$/,
+        loader: 'raw-loader'
+      },
+      {
+        test: /\.css$/,
+        loader: 'raw-loader'
       }
     ]
   },
