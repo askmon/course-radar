@@ -26,6 +26,6 @@ export class Config {
   }
 
   static getConnectionUrl(): string {
-     return 'mongodb://' + Config.db.host + ':' + Config.db.port + '/' + Config.db.name;
+    return 'mongodb://${Config.db.host}:${Config.db.port}/${Config.db.name}';
   }
 }

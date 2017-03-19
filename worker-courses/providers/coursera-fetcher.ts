@@ -5,7 +5,7 @@ import * as WebRequest from 'web-request';
 export class CourseraFetcher {
   async getAllCourses(): Promise<Course[]> {
     let url = 'https://www.coursera.org/maestro/api/topic/list?full=1';
-    console.log("Starting Coursera Request!");
+    console.info("Starting Coursera Request!");
     let courseData = await WebRequest.json<any[]>(url);
     try {
       let courses = courseData.map(course => {
@@ -15,7 +15,7 @@ export class CourseraFetcher {
       });
       return courses;
     } catch (e) {
-      console.log(e);
+      console.error(e);
       return [];
     }
   }
