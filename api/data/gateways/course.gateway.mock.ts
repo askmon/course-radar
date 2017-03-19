@@ -21,6 +21,6 @@ const courses = [{
 export class CourseMockGateway implements CourseGateway {
 
   async getAllCourses(): Promise<Course[]> {
-      return Promise.resolve(courses);
+      return courses;
   }
 }
