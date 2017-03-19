@@ -4,15 +4,7 @@ import { CourseService } from '../../../domain/course.service';
 
 @Component({
   selector: 'course-list',
-  template: `
-    <h1>My Courses</h1>
-    <ul *ngIf = "success">
-      <li *ngFor="let course of courses">
-        <course [course]="course"></course>
-      </li>
-    </ul>
-    <h2 *ngIf = "!success">An error occurred</h2>
-  `
+  templateUrl: './course-list.component.html'
 })
 
 export class CourseListComponent implements OnInit {

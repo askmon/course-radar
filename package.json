@@ -8,7 +8,7 @@
     "tsc": "tsc",
     "prestart": "npm install",
     "start": "tsc  && webpack --config webpack.config.js && nodemon dist/bootstrap.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tsc && mocha dist/**/*.spec.js"
   },
   "author": "Felipe Marques",
   "license": "ISC",
@@ -32,11 +32,17 @@
     "zone.js": "^0.7.6"
   },
   "devDependencies": {
+    "@types/chai": "^3.4.35",
     "@types/dotenv": "^2.0.20",
+    "@types/mocha": "^2.2.40",
     "@types/mongodb": "^2.1.37",
     "@types/node": "^7.0.5",
+    "angular2-template-loader": "^0.6.2",
     "awesome-typescript-loader": "^3.0.0-beta.20",
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
     "nodemon": "^1.11.0",
+    "raw-loader": "^0.5.1",
     "typescript": "^2.1.5",
     "typings": "^2.1.0",
     "webpack": "^2.0.0"

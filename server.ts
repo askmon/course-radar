@@ -18,7 +18,7 @@ export class Server {
     this.setViews();
     this.setRoutes();
     app.listen(port, function() {
-      console.log("Listening to port " + port);
+      console.log("Listening to port ${port}");
     });
   }
 
