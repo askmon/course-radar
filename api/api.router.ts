@@ -7,17 +7,16 @@ import { CourseHandlers } from "./presentation/course.handler";
 import { CourseUseCases } from "./domain/course.use-case";
 import { CourseMongoGateway } from "./data/gateways/course.gateway.mongo";
 import { CourseGateway } from "./domain/course.contract";
-import "./data/gateways/course.gateway.mock";
-
-
 
 //Handler Build
-//let injector = new Injector([["CourseGateway", CourseMongoGateway], CourseHandlers, CourseUseCases]);
-//let courseHandlers = injector.get(CourseHandlers);
-Container.set("course.gateway", Container.get(CourseMongoGateway));
-let courseHandlers = Container.get(CourseHandlers);
 
-export const ApiRouter = new Router()
-                          .get('/courses', function(request: Request, response: Response) {
-                            courseHandlers.getCourses(request, response);
-                          });
+export class ApiRouter {
+  static getRouter(): Router {
+    Container.set("course.gateway", Container.get(CourseMongoGateway));
+    let courseHandlers = Container.get(CourseHandlers);
+
+    const ApiRouter = new Router();
+    ApiRouter.get('/courses', (request: Request, response: Response) => courseHandlers.getCourses(request, response));
+    return ApiRouter;
+  }
+}

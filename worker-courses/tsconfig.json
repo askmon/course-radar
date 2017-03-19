@@ -6,7 +6,6 @@
     "isolatedModules": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "outDir": "dist",
     "declaration": false,
     "noImplicitAny": false,
     "noImplicitUseStrict": false,
@@ -14,9 +13,5 @@
     "noLib": false,
     "preserveConstEnums": true,
     "suppressImplicitAnyIndexErrors": true
-  },
-  "exclude": [
-    "node_modules",
-    "worker-courses"
-  ]
+  }
 }

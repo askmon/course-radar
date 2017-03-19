@@ -20,9 +20,7 @@ const courses = [{
 @Service()
 export class CourseMockGateway implements CourseGateway {
 
-  getAllCourses(): Promise<Course[]> {
-      return new Promise<Course[]>((resolve, reject) => {
-        resolve(courses);
-      });
+  async getAllCourses(): Promise<Course[]> {
+      return courses;
   }
 }
