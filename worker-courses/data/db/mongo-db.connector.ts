@@ -1,6 +1,6 @@
 import { Db, Server, Collection } from "mongodb";
-import { Config } from "../../config";
-import { Course } from "../models/course";
+import { Config } from "../../../config";
+import { Course } from "../../models/course";
 import { CourseRepository } from "./course-repository-interface";
 
 let dbName = Config.db.name;
